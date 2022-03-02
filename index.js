@@ -4,7 +4,8 @@ const {path} = require('path');
 app.use(express.json());
 const dotenv = require('dotenv');
 dotenv.config({ path: "./config.env" });
-
+const router = express.Router();
+app.use(router);
 app.get('/home', (req, res) => {
     console.log('Hello World');
     res.send("Hello world");
@@ -27,10 +28,10 @@ app.post('/bfhl', (req, res) => {
             numbers.push(element);
         }
     });
-    res.json({is_success: true,user_id, email, rollNo, numbers, alphabets});
+    res.status(200).send({is_success: true,user_id, email, rollNo, numbers, alphabets});
 })
 
 
-app.listen(process.env.PORT,(req, res, next) => {
+app.listen(process.env.PORT, (req, res, next) => {
     console.log('Server is up');
-})
+});
