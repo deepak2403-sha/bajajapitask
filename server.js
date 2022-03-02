@@ -5,7 +5,7 @@ app.use(express.json());
 const dotenv = require('dotenv');
 dotenv.config({ path: "./config.env" });
 
-app.get('/', (req, res) => {
+app.get('/home', (req, res) => {
     console.log('Hello World');
     res.send("Hello world");
 });
