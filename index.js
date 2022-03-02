@@ -7,9 +7,8 @@ dotenv.config({ path: "./config.env" });
 
 app.get('/', (req, res) => {
     console.log('Hello World');
-    res.json({ success: true });
-}
-);
+    res.send("Hello world");
+});
 
 app.post('/bfhl', (req, res) => {
     function isCharacterALetter(char) {
